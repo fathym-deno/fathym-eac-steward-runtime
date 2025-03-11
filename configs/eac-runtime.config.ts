@@ -1,15 +1,11 @@
 import { EaCRuntime } from '@fathym/eac/runtime';
-import { defineEaCApplicationsConfig } from '@fathym/eac-applications/runtime';
 import RuntimePlugin from '../src/plugins/RuntimePlugin.ts';
-import { RuntimeLoggingProvider } from '../src/logging/RuntimeLoggingProvider.ts';
 import { EaCRuntimeHandlerRouteGroup } from '@fathym/eac/runtime/pipelines';
+import { defineEaCStewardConfig } from '../src/utils/defineEaCStewardConfig.ts';
 
-export const config = defineEaCApplicationsConfig(
-  {
-    Plugins: [new RuntimePlugin()],
-  },
-  new RuntimeLoggingProvider(),
-);
+export const config = defineEaCStewardConfig({
+  Plugins: [new RuntimePlugin()],
+});
 
 export function configure(
   _rt: EaCRuntime,
