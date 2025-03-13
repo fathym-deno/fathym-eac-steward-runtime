@@ -16,7 +16,7 @@
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "clean:docker": "docker stop fathym-eac-steward-runtime || true && docker rm fathym-eac-steward-runtime || true",
     "deploy": "npx rimraf cov && deno task build && deno task test && npx ftm git",
-    "deploy:docker": "docker run --name fathym-eac-steward-runtime --network eac-runtimes --env-file .env.docker -dp 127.0.0.1:5101:5101 -v C:\\fathym\\denokv\\fathym-eac:/_project/denokv fathym-eac-steward-runtime",
+    "deploy:docker": "docker run --name fathym-eac-steward-runtime --network eac-runtimes --env-file .env.docker -dp 127.0.0.1:5101:5101 -v C:\\fathym\\denokv\\fathym-eac:/_project/denokv --restart always fathym-eac-steward-runtime",
     "dev": "deno run -A --watch=apps/,configs/,data/,routes/,src/,static/ dev.ts",
     "network:docker": "docker network create eac-runtimes || true",
     "publish:check": "deno publish --dry-run --allow-dirty",
