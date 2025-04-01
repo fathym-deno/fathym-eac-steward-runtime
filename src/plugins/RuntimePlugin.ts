@@ -12,7 +12,7 @@ export default class RuntimePlugin implements EaCRuntimePlugin {
       EverythingAsCode & EverythingAsCodeApplications
     > = {
       Name: RuntimePlugin.name,
-      Plugins: [new EaCStewardPlugin()],
+      Plugins: [],//[new EaCStewardPlugin()],
     };
 
     return Promise.resolve(pluginConfig);

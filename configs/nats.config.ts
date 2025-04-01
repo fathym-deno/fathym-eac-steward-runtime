@@ -40,6 +40,6 @@ async function setupJetStream() {
   await nats.close();
 }
 
-setupJetStream().catch((err) => {
-  console.error('❌ JetStream setup failed:', err);
-});
+// setupJetStream().catch((err) => {
+//   console.error('❌ JetStream setup failed:', err);
+// });
