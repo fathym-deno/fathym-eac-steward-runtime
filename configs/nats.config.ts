@@ -1,11 +1,11 @@
-import { connect, StringCodec, JetStreamManager } from 'npm:nats@2.29.2';
+import { connect, JetStreamManager, StringCodec } from 'npm:nats@2.29.2';
 import { RetentionPolicy } from 'npm:nats@2.29.2';
 import { StorageType } from 'npm:nats@2.29.2';
 
-async function setupJetStream() {
+async function _setupJetStream() {
   const nats = await connect({ servers: 'nats://localhost:4222' });
   const jsm: JetStreamManager = await nats.jetstreamManager();
-  const sc = StringCodec();
+  const _sc = StringCodec();
 
   console.log('🚀 Setting up JetStream Streams...');
 
@@ -31,7 +31,7 @@ async function setupJetStream() {
       console.log(`✅ Created stream: ${stream.name} (${stream.subject})`);
     } catch (_err) {
       console.warn(
-        `⚠️ Stream ${stream.name} already exists or failed to create.`
+        `⚠️ Stream ${stream.name} already exists or failed to create.`,
       );
     }
   }
